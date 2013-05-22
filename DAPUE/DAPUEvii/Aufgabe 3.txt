@@ -1,0 +1,59 @@
+Aufgabe 3.1
+
+minSum A[1..n]
+	if n<1 return ERROR
+	if n=1 return A[1]
+	else
+		Addiere zu jeder Zahl im Array die jeweiligen Nachbarn was soviel bedeutet, dass der Algorithmus an dieser Stelle alle moeglichen 
+		Teilfolgen bestimmt und die Teilfolge welche die geringste Summe liefert. Speicher die Teilfolge mit der geringsten Summe.
+	return Teilfolge mit der geringsten Summe
+
+
+
+Aufgabe 3.2
+
+Der dynamischer Algorithmus ist effektiver da er das Problem geziehlter angeht und Zwischenergebnisse nutzt
+
+minSum A[1..n]
+	if n<1 return ERROR
+	if n=1 return A[1]
+	else
+		Suche kleinste Zahl in A[1..n] und ueberpruefe das restliche Array links und rechts dieser Zahl nach negativen Zahlen 
+		ansonsten gib diese aus.
+		Existieren noch negative Zahlen so addiere auf die kleinste die jeweils nachfolgende bzw voherige Zahl auf, bis die naechste 
+		negative zahl erreicht ist und vergleiche die Summe der addierten Zahlen mit dieser. Ist die Summe kleiner addiere die 
+		negative Zahl und fahre fort. Ansonsten wende das zuvor beschriebene Verfahren auf die neue negative Zahl an.
+	return Die Teilfolge mit der geringsten Summe wird zurueck gegeben
+
+Aufgabe 3.3 
+
+Der Algorithmus beginnt bei der kleinsten Zahl im Array und addiert auf diese die vorherige oder nachfolgende Zahl auf bis er entweder eine bessere 
+Teilmenge findet oder bis das Array druchlaufen ist. Da der Algorithmus vom kleinsten Wert ausgeht und von dort potenzielle Teilmengen ueberprueft 
+kann kein optimalerer Algorithmus existieren, da das hinzufuegen eines weiteren Elements nur die Summe vergroessern wuerde da der Algorithmus alle 
+negativen Objekte beruecksichtigt. Somit ist der Algorithmus optimal.
+
+Aufgabe 3.4
+
+Um das Problem durch einen Teile und Herrsche Algorithmus zu loesen, wird es in triviale Teilprobleme unterteilt, also in Probleme die aus jeweils 2
+Elementen bestehen. So muessen die beiden werte naemlich nur verglichen werden und der kleinere der beiden und die Summe beider gespeichert werden.
+So laesst sich das Problem als Pyramide aufschreiben, in welcher jeder wert aus seinen Vorgaengern und dern gemeinsamem Vorgaenger berechnen laesst.
+z.B.						So laesst sich in diesem Fall die -5 berechnen, indem man die beiden Vorgaenger addiert
+			-5			((-3)+(-6))=-9 und hiervon den gemeinsamen Vorgaenger abzieht ((-9)-(-4))=-5. Somit laesst sich dieses
+		-3 		-6		Problem durch einen Teile und Herrsche Algorithmus loesen.
+	-3		-4		3	
+
+minSumT&H (A[1..n],p,r)
+	if n<1 return ERROR
+	if n=1 return A[1]
+	if r=p+1
+		Vergleiche die Teilergebnisse und speichere den kleinsten Wert sowie die Summe beider, anschliessend wird der Algorithmus erneut
+		ausgefuehrt
+	else
+		q=[(p+r/2)]
+		minSumT&H (A[1..n],p,q)
+		minSumT&H (A[1..n],q-1,r)
+	return Hier wird das geringste Ergebnis und die dazu gehoerige Teilmenge erstellt und ausgegeben.
+		
+
+		
+
