@@ -3,7 +3,7 @@ Aufgabe 2.1
 Kletter C[1..n][1..m]
 	if n<1 oder m<1 return ERROR
 	if n=1 Addiere alle Zahlen von C[1][1] bis C[1][m] und gebe den Wert zurueck.
-	if m=1 Waehle die groesste Zahl aus C[1][1] bis C[n][1] und gebe diese zurueck.
+	if m=1 Waehle die kleinste Zahl aus C[1][1] bis C[n][1] und gebe diese zurueck.
 	if n=2 & m=2 Waehle die kleinste Zahl aus C[1][1] bis C[2][1] und aus C[1][2] bis C[2][2] und gebe diese zurueck.
 	else
 		for i=1 to n do
@@ -11,6 +11,11 @@ Kletter C[1..n][1..m]
 				i=1 und j=2 setze Addiere zu dem Wert aus C[i][i] den kleinsten Wert aus 
 				C[i..i+1][j] und addiere einmal Kletter fuer (j++, i++) und fuer  (j++,i)
 	Gebe den Kletterweg zurueck der das geringste Gefahrenpotenzial besitzt.
+
+
+Aufgabe 2.2 
+
+Bei der dynamischen Programmierung wird das Problem von hinten aufgerollt da so die zuvorigen Ergebnisse mit beruecksichtig werden koennen.
 
 
 
