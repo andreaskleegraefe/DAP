@@ -1,5 +1,8 @@
 Aufgabe 2.1
 
+Der Algorithmus Durchlaeuft das zweidimensionale Feld C von oben nach unten und vergleicht dabei jeden moeglichen Weg und waehlt schliesslich den
+der das geringste Gefahrenpotenzial aufweisst.
+
 Kletter C[1..n][1..m]
 	if n<1 oder m<1 return ERROR
 	if n=1 Addiere alle Zahlen von C[1][1] bis C[1][m] und gebe den Wert zurueck.
@@ -16,6 +19,36 @@ Kletter C[1..n][1..m]
 Aufgabe 2.2 
 
 Bei der dynamischen Programmierung wird das Problem von hinten aufgerollt da so die zuvorigen Ergebnisse mit beruecksichtig werden koennen.
+
+
+Kletter C[1..n][1..m]
+	if n<1 oder m<1 return ERROR
+	if n=1 Addiere alle Zahlen von C[1][1] bis C[1][m] und gebe den Wert zurueck.
+	if m=1 Waehle die kleinste Zahl aus C[1][1] bis C[n][1] und gebe diese zurueck.
+	if n=2 & m=2 Waehle die kleinste Zahl aus C[1][1] bis C[2][1] und aus C[1][2] bis C[2][2] und gebe diese zurueck.
+	else 
+		for j=m-1 to 1 do
+			for i=1 to n do
+			Berechne fuer C[1..n][m-1] fuer jedes n den Weg mit dem geringsten Gefahrenpotenzial 
+			und Speichere diesen. Dannach wird der Aufruf fuer C[1..n][m-2] ausgefuert. Hier werden die Gefahrenpotenziale 
+			fuer jedes C[1..n][m-2] berechnet indem dynamisch die zuvor berechneten Zwischenergebnisse verglichen werden
+	Nach dem Durchlauf wird ein Feld ausgegeben welches die geringsten Gefahrenpotentiale enthalten welche noetig sind um die jeweiligen
+	Sprossen in der obersten Reihe zu erreichen also in C[1..n][1] dies wuerde in unserem Beispiel wie folgt Aussehen:
+	C[14,10,8,15]. Auf der Basis der an dieser Stelle Ermittelten Daten kann nun leicht der Optimale Weg ausgegeben werden.
+
+Aufgabe 2.3
+
+Da der Algorithmus dynamisch programmiert ist reduziert sich die Laufzeit auf O(n*m).
+
+
+Aufgabe 2.4
+
+In z.1 bis z.5 berechnet der Algorithmus jeweils die trivialen Faelle und gibt diese aus.
+Im else Fall berechnet der Algorihmus nun fuer jedes Element C[1..n][m-1..1] den Weg mit dem geringsten Gefahrenpotenzial.
+Hierbei verwendet der Algorithmus jeweils die bereits berrechneten Wege mit dem geringsten Gefahrenpotenzial, welche schon im Schrittzuvor berrechnet 
+wurden. Wuerden wir nun davon ausgehen das eine optimalere Loesung existiert welche nicht-greedy ist so das sum(C)>= sum(A) da allerdings C[i,j]
+nach dem greedy verfahren immer den Weg mit dem geringsten Gefahrenpotenzial enthaelt gilt C[i,j]<A[i,j] und somit ist unsere Loesung optimal.
+
 
 
 
