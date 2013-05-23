@@ -11,7 +11,7 @@ Kletter C[1..n][1..m]
 	else
 		for i=1 to n do
 			for j=2 to n do
-				i=1 und j=2 setze Addiere zu dem Wert aus C[i][i] den kleinsten Wert aus 
+				Addiere zu dem Wert aus C[i][i] den kleinsten Wert aus 
 				C[i..i+1][j] und addiere einmal Kletter fuer (j++, i++) und fuer  (j++,i)
 	Gebe den Kletterweg zurueck der das geringste Gefahrenpotenzial besitzt.
 
