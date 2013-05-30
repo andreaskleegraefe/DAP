@@ -41,9 +41,14 @@ Einfacher Ansatz fuer den Algorithmus:
 #	Falls der Algorithmus das vollstaendige Array durchlaeuft z.B. A[2,3,2,3,2,3,2,3,2,3,2] gebe B[3,3,3,3,3] aus
 #	Ansonsten gib den Teil aus bis wohin das Array durchlaufen wurde und wende das Verfahren erneut an z.B. A[2,3,2,3,2,2,3,2,3] waere B[3,3,3,3].
 	
-suTdyn (A)					
-	m<-length[A]
-	new array B
-	for i<-1 to m do
-
+suT (A)	
+init Array B[1..n]
+if A[i]<A[i+1]
+	if A[i+1]<A[i]+A[i+2] 
+		B{A[i],suT(i+3)}
+	else
+		B{A[i+1],suT(i+3)}
+else
+	B{A[i],suT(i+2)}				
+	
 
