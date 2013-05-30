@@ -6,7 +6,7 @@ Eingabe: Eine Folge A[1..150] von Betraegen und der Nummer k welche die Etage ma
 Ausgabe: Der groesste Betrag B(k) welcher die maximale Anzahl an Beute enthaelt in Abhaengigkeit von der Etage auf welcher das Feuer ausgebrochen ist.
 Bsp: Eingabe: A[1..150],k=60 ; Ausgabe: 360 Euro
 
-1. Geben sie einen rekursiven Algorithmus an der die maximale Beute B(k) das Diebs berechnet
+1. Finde eine Rekursion welche das Problem beschreibt
 
 Einfacher Ansatz fuer den Algorithmus:
 #	B(k)=(60/102)k ergibt bei gegebenem k und gleichen Betraegen an Geld auf jeder Etage, wieviel der Dieb maximal erbeuten kann.
@@ -29,6 +29,10 @@ BeuteMaxSchwer A[1..150],k
 			Ueberpruefe alle in der sich Ergebenden Zeit moeglichen Rauzuege und speichere jeweils die maximale Beute in B(k).
 	return B(k)
 
+Rekursion:
+
+B(i, t) = max(B(i + 1, t - 1), B(i + 1, t - 16) + A[i], B(i, t - 1))
+
 Aufgabe8.2.2
 
 Problem: Es wird ein Algorithmus gesucht, welcher die moegliche Beute des Diebes maximiert. Das Feuer bewegt sich mit
@@ -37,11 +41,14 @@ Eingabe: Eine Folge A[1..150] von Betraegen und der Nummer k welche die Etage ma
 Ausgabe: Der groesste Betrag B(k) welcher die maximale Anzahl an Beute enthaelt in Abhaengigkeit von der Etage auf welcher das Feuer ausgebrochen ist.
 Bsp: Eingabe: A[1..150],k=60 ; Ausgabe: 360 Euro
 
-1. Geben sie einen rekursiven Algorithmus an der die maximale Beute B(k) das Diebs berechnet
+Aufgabe8.2.2
 
-Einfacher Ansatz fuer den Algorithmus:
+Problem: Es wird ein Algorithmus gesucht, welcher die moegliche Beute des Diebes maximiert. Das Feuer bewegt sich mit
+1 Etage pro Minute, der Fahrstuhl schafft 10 Etagen pro Minute und der Dieb braucht 1,5 Minuten um eine Etage auszurauben.
+Eingabe: Eine Folge A[1..150] von Betraegen und der Nummer k welche die Etage makiert auf der das Feuer ausgebrochen ist.
+Ausgabe: Der groesste Betrag B(k) welcher die maximale Anzahl an Beute enthaelt in Abhaengigkeit von der Etage auf welcher das Feuer ausgebrochen ist.
+Bsp: Eingabe: A[1..150],k=60 ; Ausgabe: 360 Euro
+
+2. Geben sie einen dynamischen Algorithmus an welcher das Problem loesst.
 
 
-
-
-BeuteMaxDyn A[1..150],k
