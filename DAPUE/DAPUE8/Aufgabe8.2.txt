@@ -1,0 +1,47 @@
+Aufgabe8.2.1
+
+Problem: Es wird ein Algorithmus gesucht, welcher die moegliche Beute des Diebes maximiert. Das Feuer bewegt sich mit
+1 Etage pro Minute, der Fahrstuhl schafft 10 Etagen pro Minute und der Dieb braucht 1,5 Minuten um eine Etage auszurauben.
+Eingabe: Eine Folge A[1..150] von Betraegen und der Nummer k welche die Etage makiert auf der das Feuer ausgebrochen ist.
+Ausgabe: Der groesste Betrag B(k) welcher die maximale Anzahl an Beute enthaelt in Abhaengigkeit von der Etage auf welcher das Feuer ausgebrochen ist.
+Bsp: Eingabe: A[1..150],k=60 ; Ausgabe: 360 Euro
+
+1. Geben sie einen rekursiven Algorithmus an der die maximale Beute B(k) das Diebs berechnet
+
+Einfacher Ansatz fuer den Algorithmus:
+#	B(k)=(60/102)k ergibt bei gegebenem k und gleichen Betraegen an Geld auf jeder Etage, wieviel der Dieb maximal erbeuten kann.
+#	Falls die Aufgabenstellung von variablen Betraegen auf jeder Etage ausgeht, muesste man alle faelle von der obersten zu erreichenden Etage ausgehend vergleichen.
+#	(k*60) ergibt die Zeit die der Dieb fuer den Raubzug hat. Jede Etage kostet Betrag(A(s)-A(z))+90. Was einer Deadline=(A(k)-A(i))*60 entspricht.
+#	Also um eine Etage noch ausrauben zu koennen, ausgehend von der Etage auf der sich der Dieb befindet, benoetig dieser t=((A(k)-A(i))*60)-(90+Betrag(A(i)-A(s))*6)
+#	Wert der Beute als Funktion Wert(i)=A(i)/i 
+	 
+BeuteMaxEinfach A[1..150],k
+	if k<3
+		return B(k)=0
+	else 
+		return B(k)=(60/102)*k
+
+BeuteMaxSchwer A[1..150],k
+	if k<3
+		return B(k)=0
+	else
+		for i<-1 to k do
+			Ueberpruefe alle in der sich Ergebenden Zeit moeglichen Rauzuege und speichere jeweils die maximale Beute in B(k).
+	return B(k)
+
+Aufgabe8.2.2
+
+Problem: Es wird ein Algorithmus gesucht, welcher die moegliche Beute des Diebes maximiert. Das Feuer bewegt sich mit
+1 Etage pro Minute, der Fahrstuhl schafft 10 Etagen pro Minute und der Dieb braucht 1,5 Minuten um eine Etage auszurauben.
+Eingabe: Eine Folge A[1..150] von Betraegen und der Nummer k welche die Etage makiert auf der das Feuer ausgebrochen ist.
+Ausgabe: Der groesste Betrag B(k) welcher die maximale Anzahl an Beute enthaelt in Abhaengigkeit von der Etage auf welcher das Feuer ausgebrochen ist.
+Bsp: Eingabe: A[1..150],k=60 ; Ausgabe: 360 Euro
+
+1. Geben sie einen rekursiven Algorithmus an der die maximale Beute B(k) das Diebs berechnet
+
+Einfacher Ansatz fuer den Algorithmus:
+
+
+
+
+BeuteMaxDyn A[1..150],k

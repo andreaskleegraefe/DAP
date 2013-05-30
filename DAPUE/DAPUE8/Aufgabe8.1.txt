@@ -1,0 +1,49 @@
+Aufgabe8.1.1
+
+Problem: Ausgabe eines strikt unzusammenhaengenden Teilarrays von A[1..n].Es duerfen also keine zwei in A benachbarten 
+	 Elemente in B zusammen auftreten.
+Eingabe: Array A[1..n] gefuellt mit zufaelligen Zahlen.
+Ausgabe: Strikt unzusammenhaengendes Teilarray B von A[1..n] fuer welches die Summe seiner Elemente maximal ist.
+
+Bsp: Eingabe: 3,6,4,-2,1,-3,4,8,2 ; Ausgabe: 3,4,1,8
+
+1. Geben sie einen rekursiven Algorithmus an, welcher das vorliegende Problem loesst. (Pseudocode)
+
+Einfacher Ansatz fuer den Algorithmus:
+#	Erzeuge strikt unzusammenhaengenden Teilfolgen B von A[1..n].
+#	Ueberpruefe fuer jede gefundene strikt unzusammenhaengende Teilfolge B von A ob diese groesser ist als die bisherige maximale Teilfolge.
+#	Merke zu jedem Zeitpunkt strikte unzusammenhaengende Teilfolge mit der groessten Summe.
+
+suT (A)					
+	m<-length[A]
+	new array B
+	for i<-1 to m do
+		for j<-1 to m do
+		Ueberpruefe fuer jede gefundene strikt unzusammenhaengende Teilfolge B von A ob diese groesser ist als die bisherige maximale Teilfolge.
+		Dann speichere diese in Array B.
+	return B
+
+
+Aufgabe8.1.2
+
+Problem: Da bei der Loesung in 8.1 jedes Teilarray ueberprueft werden muss, ist die Laufzeit sehr schlecht. Um die Laufzeit zu verbessern versuchen 
+wir nun durch dynamische Programmierung Teilergebnisse wiederzuverwenden um so die Laufzeit erheblich zu reduzieren.
+	
+Eingabe: Array A[1..n] gefuellt mit zufaelligen Zahlen.
+Ausgabe: Strikt unzusammenhaengendes Teilarray B von A[1..n] fuer welches die Summe seiner Elemente maximal ist.
+
+Bsp: Eingabe: 3,6,4,-2,1,-3,4,8,2 ; Ausgabe: 3,4,1,8
+
+2. Geben sie einen Algorithmus an welcher auf dynamischer Programmierung beruht, der das Array B bestimmt
+
+Einfacher Ansatz fuer den Algorithmus:
+#	Vergleiche A[i] mit A[i+1] falls A[i+1]>A[i], vergleiche A[i+1] mit A[i]+A[i+2] falls A[i]+A[i+2]>A[i+1], wende dieses Vorgehen auf i+2 an.
+#	Falls der Algorithmus das vollstaendige Array durchlaeuft z.B. A[2,3,2,3,2,3,2,3,2,3,2] gebe B[3,3,3,3,3] aus
+#	Ansonsten gib den Teil aus bis wohin das Array durchlaufen wurde und wende das Verfahren erneut an z.B. A[2,3,2,3,2,2,3,2,3] waere B[3,3,3,3].
+	
+suTdyn (A)					
+	m<-length[A]
+	new array B
+	for i<-1 to m do
+
+
