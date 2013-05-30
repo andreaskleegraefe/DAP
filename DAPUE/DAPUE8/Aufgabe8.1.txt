@@ -26,7 +26,9 @@ Einfacher Ansatz fuer den Algorithmus:
 #	Vergleiche A[i] mit A[i+1] falls A[i+1]>A[i], vergleiche A[i+1] mit A[i]+A[i+2] falls A[i]+A[i+2]>A[i+1], wende dieses Vorgehen auf i+2 an.
 #	Falls der Algorithmus das vollstaendige Array durchlaeuft z.B. A[2,3,2,3,2,3,2,3,2,3,2] gebe B[3,3,3,3,3] aus
 #	Ansonsten gib den Teil aus bis wohin das Array durchlaufen wurde und wende das Verfahren erneut an z.B. A[2,3,2,3,2,2,3,2,3] waere B[3,3,3,3].
-	
+
+Rekursiver Algorithmus	
+
 suT (A)	
 init Array B[1..n]
 if A[i]<A[i+1]
@@ -35,6 +37,21 @@ if A[i]<A[i+1]
 	else
 		B{A[i+1],suT(i+3)}
 else
-	B{A[i],suT(i+2)}				
+	B{A[i],suT(i+2)}	
+
+Dynamische Programmierung
+
+SuT(A)
+n<-length.A
+if n==0 then return 0
+if n==1 then return A[1]
+else 
+       init Array B[1..n]
+       for i<-2 to n do
+              if A[i-1] + A[i+1] >= A[i] + A[i+2]
+                     B{A[i-1] + max{A[i+1]; A[i+2]}              
+              else
+                     B{A[i] + max{A[i+2]; A[i+3]} 
+return B			
 	
 
