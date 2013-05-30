@@ -54,4 +54,24 @@ else
                      B{A[i] + max{A[i+2]; A[i+3]} 
 return B			
 	
+Aufgabe8.1.3
+
+3. Beweisen sie ihren Algorithmus
+
+Beweis: 
+IA) Wenn das übergebene Array A die länge 0 hat, gibt der Algorithmus in Zeile 2. 0 zurück, da ein leeres Feld kein Unzusammenhängendes Teilarray beinhalten kann 
+Wenn das Array länge 1 hat wird hier in Zeite 3. dieses eine Element ausgegeben, da es das einzige Element im Feld ist, ist das Ergebnis auch ein unzusammenhängendes maximales Teilarray von A.
+Dies ist korrekt, daher gilt unsere Induktion fuer den Fall n=0 und n=1.
+IV) Unser Algorithmus SuT findet in einem Feld A[1..n] eine strikte unzusammenhängende maximale Teilfolge B
+IS) für n>1 überprüft unsere Algorithmus in einer for schleife von 2 bis n (zeile 6) nach unserer Rekursionsgleichung ob die Summe der linken benachbarten Zahl größer gleich der Summe
+der i-ten Zahl + ihres übernächsten rechten Nachbars ist (Zeile 7). Ist dies der Fall wird die i-1-te Zahl dem Ergebnisarray zugefügt und rekursiv
+durch das Maximum der rechtes übernächsten [i+1] Zahl oder der rechten überübernächsten Zahl [i+2] fortgeführt.
+Stimmt die If-Anweisung in Zeile 7 nicht, so wird der else fall ausgeführt und die i-te Zahl wird dem Ergebnisarray beigefügt und das Array wieder durch das Maximum der übernächsten [i+2] Zahl oder der [i+3] überübernächsten Zahl fortgeführt. (Zeile 10)
+In Zeile 11 wird das Ergebnisarray ausgegeben. Da unserer Algorithmus sich immer auf die vorherigen Ergebnisse beruft und bisher durchlaufene Bereich sortiert ist, ist unserer Algorithmus korrekt.
+
+Aufgabe8.1.4
+
+Jeder Aufruf von suT(A) generiert hoechstens einmal den rekursiven Aufruf der Methode also wird fuer jeden Aufruf der Methode jedes i<n, die Funktion suT(A) einmal aufgerufen.
+Ohne die Laufzeit der for-SChleife mit den rekursiven Aufrufen, benoetigt suT(A) O(1) Zeit. Fuer ein Array der laenge n benoetigen wir durch die 
+for-Schleife und den rekursiven Aufruf T(n)=O(n)
 
