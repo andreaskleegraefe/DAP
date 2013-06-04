@@ -1,0 +1,131 @@
+Vorlesung04
+
+.Korrektheitsbeweise Rekursionen
+	.Problem ist, dass wir nicht wissen wie haefig eine
+	Rekursion ausgefuehrt wird.
+	.Da allerdings die Rekursion das Gegenstueck zur Induktion
+	ist, kann die Korrektheit leicht per Induktion gezeigt 
+	werden.
+		
+	.Bsp
+	Sum(A,n)
+	if n=1 then return A[1]
+	else
+		W=Sum(A,n-1)
+		return A[n]+W
+
+	.Beweis von Sum(A,n) durch Induktion ueber n
+
+	(I.A.) Wenn n=1 ist so gibt der Algorithmus in z.1 den Wert A[1]
+	zurueck. Dies ist korrekt.
+	
+	(I.V.) Fuer n-1>0 berrechnet Sum(A,n-1) die Summe der ersten
+	n-1 Eintraege von A. (n-1 da dies das Vorgehen das Alg. ist)
+	
+	(I.S.) Im Aufruf Sum(A,n) wird der else-Fall ausgefuehrt, da n>1
+	ist. Im else-Fall wird nun W auf Sum(A,n-1) gesetzt.
+	Nun wir also in z.4 A[n]+Sum(A,n-1) berechnet, was Sum(A,n)
+	entspricht.
+	
+.Teile & Herrsche
+	.Das Problem wird in Teilprobleme aufgeteilt, welche trivial
+	loesbar sind. (rekursive loesung auf den Teilen)
+	.Zusammenfuegen der Teilloesungen
+	
+	.Bsp 					
+	MergeSort(Array A, p, r)		Zeit:
+		if p<r then			 1	
+			q<-[(p+r)/2]	         1
+			MergeSort(A,p,q)	1+T(n/2)
+			MergeSort(A,q+1,r)	1+T(n/2)
+			Merge(A,p,q,r)		cn
+					       ----------
+	               				2T(n/2)+cn+4
+			1 7 8 5 3 6 4 9
+		1 7 8 5                3 6 4 9
+	     1 7       8 5          3 6       4 9 
+	    1   7     8   5        3   6     4   9
+	     1 7       5 8          3 6       4 9
+	        1 5 7 8                3 4 6 9
+			1 3 4 5 6 7 8 9
+
+	Merge(A,p,q,r)
+		i=1
+		j=q+1
+		k=0
+		Array B<-length(r)
+		while i<q & j<r
+			if (A[i]<=A[j])
+				B[i]=A[i]
+				i++
+			else
+				B[i]=A[j]
+				j++
+			k++
+		if i<q then
+			for p<-i to q do
+				B[k]=A[p]
+				k++
+		else
+			for p<-j to r do
+				B[k]=A[p]	
+				k++
+		for i<-1 to r do
+			A[i]=B[i]
+
+	.Korrektheitsbeweis MergeSort(A,p,r) durch Induktion ueber n=r-p.
+
+	(I.A.) Fuer n=0 also p=r macht der Algorithmus nichts. Da das Feld
+	nur ein Element enthaelt ist es also sortiert.
+
+	(I.V.) Fuer alle m=r-p mit 0<=m<=n sortiert MergeSort(A,p,r) das 
+	Feld korrekt.
+
+	(I.S.) Wir betrachten den Aufruf fuer n+1=r-p. In diesem Fall wird
+	der then-Fall ausgefuehrt und q auf [(p+r)/2] gesetzt. Dann wird
+	MergeSort rekursiv in den Grenzen p,q und q+1,r ausgefuehrt.
+	Nach (I.V.) sortiert MergeSort korrekt.
+
+	
+	.MergeSort Laufzeit als Rekursion
+
+
+		 	C ,falls n=1
+		T(n)<= { 
+		 	2T(n/2)+cn ,sonst
+		
+		.mit c,C als geeignete Konstanten.
+		
+		.Aufloesen der Rekursionsgleichung
+	
+		|	       n                         cn
+	Hoehe   |    n/2		n/2		2 cn/2
+	log n	|n/4	 n/4        n/4     n/4   	4 cn/4
+		|
+		|1 1 1 1 ....                            nC
+							------
+							<=(c+C)nlogn
+							<= O(nlogn)
+
+		.Mergesort hat eine Laufzeit von O(nlogn)
+	
+	.Beweis der Laufzeit von MergeSort durch Induktion
+		
+	(I.A.) fuer n=2 T(2)<=C'<=C*2log2.
+	
+	(I.V.) fuer Eingabelaenge m<n ist die Laufzeit T(m)<=C*mlogm.
+
+	(I.S.) Es gilt T(n)<=2T(n/2)+cn. Nach (I.V.) gilt
+		T(n)<=2C*n/2log(n/2)+cn
+	   	    <=C*n(log(n)-1)+cn
+		    <=C*n(log(n)-1)+C*n=C*nlog(n)
+	       Also gilt T(n)=O(nlogn)[da fuer n>=n_0=2, T(n)<=C*nlogn ist]	
+
+		
+			
+		
+			
+		
+		
+	
+		

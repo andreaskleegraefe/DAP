@@ -1,0 +1,39 @@
+Vorlesung03
+
+.Korrektheitsbeweise
+	.Das verhalten des Algorithmus mus geeignet beschrieben werden
+	.Auf Pseudocode bezogen argumentieren
+	
+	.Schleifeninvariante
+		.Aussage welche von der Anzahl der Schleifendurchlaeufe
+		abhaengig ist A(i)
+		.Mit A(1) beziehen wir uns auf den Zustand zu Beginn 
+		des ersten Durchlaufs (Initialisierung)
+	
+	.Bsp
+	Max-Search(Array A)
+	max<-1
+	forj<-2 to length[A] do
+		ifA[j]>A[max] then max<-j
+	return max
+
+	(Inv.) A[max} groesstes Element aus A[1..j-1]
+
+
+	.Beweis durch Induktion ueber j
+
+	(I.A.) Zur Initialisierung der Schleife ist max=1 und j=2.
+	A[1..1] enthaelt nur ein Element. A[max]=A[1] gilt und daher
+	gilt die Invariante zur Initialisierung.
+
+	
+	(I.V.) Sei die Invariante erfuellt fuer j=j_o<length[A]+1.
+
+	(I.S.) Z.z. Inv. erfuellt fuer j+1. Ist A[j] groesser als
+	das groesste Element aus A[1..j-1] und somit das groesste 
+	Element aus A[1..j]. Da max=j gesetzt wird ist A[max] groesstes
+	Element aus A[1..j]. Da j am Ende der Schleife um 1 erhoeht wird
+	gilt die Invariante auch fuer j+1. Somit ist die Invariante
+	erfuellt, da sie vor jedem Schleifendurchlauf und -austritt gilt.
+
+		

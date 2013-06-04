@@ -1,0 +1,12 @@
+DAP Uebungstest 1
+
+Aufgabe 1.1 O-Notation (Vorlesung 2)
+
+Aufgabe 1.2 Rekursionsgleichung (Vorlesung 6.6)
+
+Aufgabe 2 Schleifeninvariante
+
+Aufgabe 3 Teile & Herrsche
+
+Aufgabe 4 Dynamische Programmierung
+

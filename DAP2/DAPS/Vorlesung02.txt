@@ -1,0 +1,36 @@
+Vorlesung02
+
+.Laufzeitanalyse
+	.Parametrisiere Laufzeit als Funktion der Eingabegroesse
+	.Finde obere Schranken (Garantien) an die Laufzeit
+
+	.Worst-Case Analyse (Standart)
+		.Garantie fuer jede Eingabe
+
+	.Average-Case Analyse
+		.Haengt von der Definition des Durchschnitts ab
+
+	.Asymptotische Analyse
+		.Eine Instruktion braucht einen Zeitschritt (RAM Modell)
+		.Betrachte Wachstum von T(n) fuer n->unendlich	
+		
+	.Bsp.
+	InsertionSort(Array A)			      Zeit:
+		for j<-2 to length[A] do		n		
+			key<-A[j]			n-1
+			i<-j-1				n-1
+			while i>0 and A[i]>key do	n-1+sum{t_j}
+				A[i+1]<-A[i]		sum{t_j}	
+				i<-i-1			sum{t_j}
+			A[i+1]<-key			n-1
+							--------
+							5n-4+3sum{t_j}
+
+	.Worst-Case Analyse Bsp.
+		.t_j=j-1 (fuer ein absteigende sortiertes Array)	
+		
+		T(n)=5n-4+3sum{j-1,n,j-1}=2n-4+3sum{j-1,n,j}
+		=2n-4+3(n(n+1))/2=(3n^2+7n-8)/2=O(n^2)
+
+	.O-Notation
+		.Ignorieren von Konstanten
